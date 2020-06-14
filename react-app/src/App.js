@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { HeaderBar, NavBar/*, NotFound*/ } from './components';
+import { HeaderBar, NavBar, NotFound } from './components';
 import About from './About';
 
 const Products = withRouter(
@@ -12,7 +12,6 @@ const Products = withRouter(
 
 class App extends Component {
   render() {
-//    <Route exact path="**" component={NotFound} />
     return (
       <div>
         <HeaderBar />
@@ -24,6 +23,7 @@ class App extends Component {
                 <Redirect from="/" exact to="/products" />
                 <Route path="/products" component={Products} />
                 <Route path="/about" component={About} />
+                <Route exact path="**" component={NotFound} />
               </Switch>
             </Suspense>
           </main>
